@@ -1519,6 +1519,191 @@ end;</code></pre></div>
     </div>
   </section>
 
+  <section>
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>延伸實驗：v1 濾網強化版（v1.1）</h2>
+    </div>
+    <p class="section-desc">v1.1 不是六款核心策略之一，而是針對 v1 唯一明顯弱點（2022年）設計的延伸實驗版本，2026-08-25 完成首次回測（已計入單邊2,000點成本，與 v1 同基準）。以下數據皆與 v1 直接對照。</p>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-id">v1.1 · TXF_15M_1280HighMA_MacdRsiBB_2Bar_BH_Settlement</div>
+            <p class="card-name">v1濾網強化版（延伸實驗，非六款核心之一）</p>
+          </div>
+          <span class="card-tag">改善未解決・特性互換</span>
+        </div>
+        <div class="card-stats">
+          <div class="stat"><div class="k">淨利</div><div class="v">670.0萬</div></div>
+          <div class="stat"><div class="k">獲利因子</div><div class="v">3.22</div></div>
+          <div class="stat"><div class="k">索丁諾比率</div><div class="v">1.384</div></div>
+          <div class="stat"><div class="k">帳戶所需金額</div><div class="v">623,200</div></div>
+        </div>
+        <div class="card-body">
+          <div class="block logic">
+            <h3>核心邏輯</h3>
+            <p>完全保留 v1 的出場端（無主動停損停利，僅結算日強制平倉），只把進場濾網從 v1 單一的「連續2根K棒站上1280高點均線」，疊加 v3 的 MACD 柱狀圖 &gt; 0、RSI &gt; 50 兩項濾網並升級為連續2根K棒同時成立（v3 原本只看當根），再新增「收盤價連續2根K棒站上BB(20)中軌」，相當於5個獨立條件（趨勢方向、趨勢延續、動能、強度、短期相對位置）全部連續2根K棒同時成立才進場，目的是過濾掉 2022 年那種「勉強達標」的邊際訊號。</p>
+          </div>
+          <div class="block advantage">
+            <h3>主要優勢</h3>
+            <p>與 v1 同基準（皆為2,000點成本）比較：獲利因子 3.22 優於 v1 的 3.16，索丁諾比率 1.384 大幅優於 v1 的 0.533，帳戶所需金額 623,200 元優於 v1 的 798,800 元（資金效率提升約22%）；2022 年由 v1 的 -30,800 縮小到 -24,600，有改善。</p>
+          </div>
+          <div class="block risk">
+            <h3>風險與適用情境</h3>
+            <p>並未達成「全面優於v1」的設計目標：淨利 670.0 萬略低於 v1 的 679.2 萬，年化夏普 0.399 明顯低於 v1 的 0.553；交易次數 104 筆與 v1 的 104 筆幾乎相同，並未如設計時預期因濾網變嚴而明顯減少。整體是「風險分佈更集中、資金效率更好，但總報酬與夏普比率略遜」的特性互換版本，而非單純升級版，也印證了設計時已提防的過度配適風險——針對單一弱勢年份反推的濾網組合，2022年雖有改善但仍是虧損，且在其他維度（夏普比率）付出了代價。目前僅完成首次回測，尚未納入六款核心策略比較，建議持續觀察樣本外表現後再評估是否納入。</p>
+          </div>
+          <div class="block charts">
+          <h3>平倉權益曲線 ／ 年度績效</h3>
+          <div class="chart-grid">
+            <div class="chart-item">
+              <div class="chart-title">平倉權益曲線（依平倉時間累積淨利）</div>
+              <svg viewBox="0 0 640 190" class="chart-svg" role="img" aria-label="平倉權益曲線">
+  <line x1="12" y1="160.7" x2="628" y2="160.7" stroke="#2a363f" stroke-width="1" stroke-dasharray="3,3"/>
+  <polygon points="12.0,160.7 12.0,160.6 18.0,158.9 24.0,157.8 29.9,158.5 35.9,158.0 41.9,157.4 47.9,157.9 53.9,158.9 59.8,157.3 65.8,158.5 71.8,158.0 77.8,158.7 83.8,159.2 89.7,159.0 95.7,159.1 101.7,159.2 107.7,159.3 113.7,163.4 119.7,163.8 125.6,164.0 131.6,163.7 137.6,161.8 143.6,160.8 149.6,158.9 155.5,160.7 161.5,160.0 167.5,159.0 173.5,159.9 179.5,157.8 185.4,156.9 191.4,155.1 197.4,153.1 203.4,153.4 209.4,154.8 215.3,153.4 221.3,150.8 227.3,148.3 233.3,145.1 239.3,142.4 245.2,141.7 251.2,141.6 257.2,137.9 263.2,135.6 269.2,129.5 275.1,127.4 281.1,128.2 287.1,123.7 293.1,128.0 299.1,126.0 305.0,125.1 311.0,125.5 317.0,127.3 323.0,123.9 329.0,124.6 335.0,122.7 340.9,122.9 346.9,124.5 352.9,126.4 358.9,123.7 364.9,127.5 370.8,122.0 376.8,123.0 382.8,121.7 388.8,122.0 394.8,122.0 400.7,121.3 406.7,120.4 412.7,115.1 418.7,114.8 424.7,118.0 430.6,118.4 436.6,119.1 442.6,116.8 448.6,115.0 454.6,117.1 460.5,113.5 466.5,109.4 472.5,107.9 478.5,105.6 484.5,97.9 490.4,95.9 496.4,97.4 502.4,99.6 508.4,97.2 514.4,99.3 520.3,99.0 526.3,102.1 532.3,101.5 538.3,108.4 544.3,101.9 550.3,99.6 556.2,94.9 562.2,92.1 568.2,86.0 574.2,79.5 580.2,82.7 586.1,83.1 592.1,69.5 598.1,58.8 604.1,51.0 610.1,39.0 616.0,22.0 622.0,24.0 628.0,26.1 628.0,160.7" fill="#ef5350" fill-opacity="0.10" stroke="none"/>
+  <polyline points="12.0,160.6 18.0,158.9 24.0,157.8 29.9,158.5 35.9,158.0 41.9,157.4 47.9,157.9 53.9,158.9 59.8,157.3 65.8,158.5 71.8,158.0 77.8,158.7 83.8,159.2 89.7,159.0 95.7,159.1 101.7,159.2 107.7,159.3 113.7,163.4 119.7,163.8 125.6,164.0 131.6,163.7 137.6,161.8 143.6,160.8 149.6,158.9 155.5,160.7 161.5,160.0 167.5,159.0 173.5,159.9 179.5,157.8 185.4,156.9 191.4,155.1 197.4,153.1 203.4,153.4 209.4,154.8 215.3,153.4 221.3,150.8 227.3,148.3 233.3,145.1 239.3,142.4 245.2,141.7 251.2,141.6 257.2,137.9 263.2,135.6 269.2,129.5 275.1,127.4 281.1,128.2 287.1,123.7 293.1,128.0 299.1,126.0 305.0,125.1 311.0,125.5 317.0,127.3 323.0,123.9 329.0,124.6 335.0,122.7 340.9,122.9 346.9,124.5 352.9,126.4 358.9,123.7 364.9,127.5 370.8,122.0 376.8,123.0 382.8,121.7 388.8,122.0 394.8,122.0 400.7,121.3 406.7,120.4 412.7,115.1 418.7,114.8 424.7,118.0 430.6,118.4 436.6,119.1 442.6,116.8 448.6,115.0 454.6,117.1 460.5,113.5 466.5,109.4 472.5,107.9 478.5,105.6 484.5,97.9 490.4,95.9 496.4,97.4 502.4,99.6 508.4,97.2 514.4,99.3 520.3,99.0 526.3,102.1 532.3,101.5 538.3,108.4 544.3,101.9 550.3,99.6 556.2,94.9 562.2,92.1 568.2,86.0 574.2,79.5 580.2,82.7 586.1,83.1 592.1,69.5 598.1,58.8 604.1,51.0 610.1,39.0 616.0,22.0 622.0,24.0 628.0,26.1" fill="none" stroke="#ef5350" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="12" y="184" font-size="10.5" fill="#5d6d78" font-family="IBM Plex Mono, monospace">2017-05-17</text>
+  <text x="628" y="184" font-size="10.5" fill="#5d6d78" font-family="IBM Plex Mono, monospace" text-anchor="end">2026-08-19</text>
+  <text x="628" y="14" font-size="12" fill="#ef5350" font-family="IBM Plex Mono, monospace" font-weight="700" text-anchor="end">+6,700,000</text>
+</svg>
+            </div>
+            <div class="chart-item">
+              <div class="chart-title">年度績效（各年度淨利，紅漲綠跌）</div>
+              <svg viewBox="0 0 640 190" class="chart-svg" role="img" aria-label="年度績效">
+  <line x1="10" y1="146.3" x2="630" y2="146.3" stroke="#2a363f" stroke-width="1"/>
+  <rect x="23.6" y="141.4" width="34.7" height="4.9" fill="#ef5350" rx="1.5"/><rect x="85.6" y="146.3" width="34.7" height="13.7" fill="#4caf7d" rx="1.5"/><rect x="147.6" y="119.1" width="34.7" height="27.2" fill="#ef5350" rx="1.5"/><rect x="209.6" y="95.2" width="34.7" height="51.2" fill="#ef5350" rx="1.5"/><rect x="271.6" y="116.8" width="34.7" height="29.6" fill="#ef5350" rx="1.5"/><rect x="333.6" y="146.3" width="34.7" height="1.3" fill="#4caf7d" rx="1.5"/><rect x="395.6" y="124.0" width="34.7" height="22.3" fill="#ef5350" rx="1.5"/><rect x="457.6" y="108.4" width="34.7" height="38.0" fill="#ef5350" rx="1.5"/><rect x="519.6" y="90.4" width="34.7" height="55.9" fill="#ef5350" rx="1.5"/><rect x="581.6" y="16.0" width="34.7" height="130.3" fill="#ef5350" rx="1.5"/>
+  <text x="41.0" y="136.4" font-size="9.5" fill="#ef5350" font-family="IBM Plex Mono, monospace" text-anchor="middle" font-weight="600">+9.4萬</text><text x="41.0" y="182" font-size="10.5" fill="#8fa0aa" font-family="IBM Plex Mono, monospace" text-anchor="middle">2017</text><text x="103.0" y="172.0" font-size="9.5" fill="#4caf7d" font-family="IBM Plex Mono, monospace" text-anchor="middle" font-weight="600">-26.2萬</text><text x="103.0" y="182" font-size="10.5" fill="#8fa0aa" font-family="IBM Plex Mono, monospace" text-anchor="middle">2018</text><text x="165.0" y="114.1" font-size="9.5" fill="#ef5350" font-family="IBM Plex Mono, monospace" text-anchor="middle" font-weight="600">+52.2萬</text><text x="165.0" y="182" font-size="10.5" fill="#8fa0aa" font-family="IBM Plex Mono, monospace" text-anchor="middle">2019</text><text x="227.0" y="90.2" font-size="9.5" fill="#ef5350" font-family="IBM Plex Mono, monospace" text-anchor="middle" font-weight="600">+98.1萬</text><text x="227.0" y="182" font-size="10.5" fill="#8fa0aa" font-family="IBM Plex Mono, monospace" text-anchor="middle">2020</text><text x="289.0" y="111.8" font-size="9.5" fill="#ef5350" font-family="IBM Plex Mono, monospace" text-anchor="middle" font-weight="600">+56.7萬</text><text x="289.0" y="182" font-size="10.5" fill="#8fa0aa" font-family="IBM Plex Mono, monospace" text-anchor="middle">2021</text><text x="351.0" y="159.6" font-size="9.5" fill="#4caf7d" font-family="IBM Plex Mono, monospace" text-anchor="middle" font-weight="600">-2.5萬</text><text x="351.0" y="182" font-size="10.5" fill="#8fa0aa" font-family="IBM Plex Mono, monospace" text-anchor="middle">2022</text><text x="413.0" y="119.0" font-size="9.5" fill="#ef5350" font-family="IBM Plex Mono, monospace" text-anchor="middle" font-weight="600">+42.8萬</text><text x="413.0" y="182" font-size="10.5" fill="#8fa0aa" font-family="IBM Plex Mono, monospace" text-anchor="middle">2023</text><text x="475.0" y="103.4" font-size="9.5" fill="#ef5350" font-family="IBM Plex Mono, monospace" text-anchor="middle" font-weight="600">+72.8萬</text><text x="475.0" y="182" font-size="10.5" fill="#8fa0aa" font-family="IBM Plex Mono, monospace" text-anchor="middle">2024</text><text x="537.0" y="85.4" font-size="9.5" fill="#ef5350" font-family="IBM Plex Mono, monospace" text-anchor="middle" font-weight="600">+107.2萬</text><text x="537.0" y="182" font-size="10.5" fill="#8fa0aa" font-family="IBM Plex Mono, monospace" text-anchor="middle">2025</text><text x="599.0" y="11.0" font-size="9.5" fill="#ef5350" font-family="IBM Plex Mono, monospace" text-anchor="middle" font-weight="600">+249.8萬</text><text x="599.0" y="182" font-size="10.5" fill="#8fa0aa" font-family="IBM Plex Mono, monospace" text-anchor="middle">2026</text>
+</svg>
+            </div>
+          </div>
+        </div>
+      </div>
+        <details class="code-toggle">
+          <summary>查看完整程式碼 · PowerLanguage（TXF_15M_1280HighMA_MacdRsiBB_2Bar_BH_Settlement_v1_1.txt）</summary>
+          <div class="code-wrap"><pre><code>// Strategy Name: TXF_15M_1280HighMA_MacdRsiBB_2Bar_BH_Settlement_v1.1
+// Tab Name: 15M_MacdRsiBB_BH_v1_1
+//
+// v1.1 design note:
+// v1 is the highest net-profit / profit-factor version in the whole v1~v11
+// series, built on a pure &quot;buy and hold to settlement&quot; idea: enter once
+// price is above a rising 1280-bar High MA for 2 consecutive bars, then do
+// nothing active until the settlement exit. Its only clearly weak year in
+// the annual breakdown is 2022 (net -800, only 8 trades, 25% win rate) --
+// a choppy year where the trend filter alone was not enough to keep the
+// entries clean.
+//
+// v1.1 keeps v1's core idea and its exit side completely untouched (still
+// no active stop, still settlement-exit only) -- only the ENTRY filter is
+// tightened, by requiring three more conditions to all agree, each of them
+// also confirmed for 2 consecutive bars (not just the current bar), on top
+// of the original trend filter:
+//   - MACD histogram &gt; 0 for 2 bars (borrowed from v3's momentum filter,
+//     but v3 only checks the current bar; here it must hold twice in a row)
+//   - RSI &gt; 50 for 2 bars (borrowed from v3's strength filter, same 2-bar
+//     upgrade)
+//   - Close &gt; 20-bar BB midline for 2 bars (new filter: price must be on
+//     the strong side of its own short-term mean, not just above the very
+//     long-term trend line)
+//
+// Rationale: a choppy year like 2022 tends to lose money through a small
+// number of marginal entries that only just barely satisfy a single-bar
+// filter. Requiring five independent signals (trend direction, trend
+// persistence, momentum, relative strength, and short-term price position)
+// to ALL agree for two consecutive bars is meant to filter out exactly
+// those marginal &quot;just barely qualifies&quot; entries, without adding any new
+// exit-side risk control.
+//
+// IMPORTANT CAVEAT (read before backtesting): this design was reasoned
+// about specifically to address v1's one weak year (2022) inside the
+// existing ~9-year-4-month sample. That is a real overfitting risk -- a
+// filter tuned to fix one historical year is not guaranteed to generalize
+// out of sample. The real test is whether TOTAL net profit / profit
+// factor / trade count across the FULL period improves versus v1, not
+// just whether 2022 alone turns positive. Also note: stacking five
+// independent 2-bar-confirmed conditions is a much stricter gate than
+// v1's single 2-bar trend filter, so expect materially fewer trades than
+// v1's 103 -- if too few trades survive, this version may also miss some
+// of the large sustained trends that produced v1's biggest wins, since
+// entries now confirm later in the move. And because the exit side is
+// unchanged (no ISL, no BB trail), any entry that still slips through as
+// a false signal still rides all the way to the next settlement day with
+// zero active risk control, exactly as in v1.
+
+Inputs:
+    TrendLen(1280),         // Core long-term trend period (unchanged from v1)
+    ExitDay(3), MinDay(15), MaxDay(21),
+    // Momentum / strength / position filters (new in v1.1)
+    MacdFastLen(12), MacdSlowLen(26), MacdMacdLen(9),
+    RsiLen(14),
+    BBLength(20);
+
+Variables:
+    HighMA(0),
+    MacdValue(0), MacdAvg(0), MacdDiff(0),
+    RsiValue(0),
+    BBMid(0),
+    Condition1(false),
+    IsSettlementDay(false);
+
+// ======================================================
+// 1. Indicator calculations
+// ======================================================
+HighMA = Average(High, TrendLen);
+
+MacdValue = MACD(Close, MacdFastLen, MacdSlowLen);
+MacdAvg = XAverage(MacdValue, MacdMacdLen);
+MacdDiff = MacdValue - MacdAvg;  // MACD histogram
+
+RsiValue = RSI(Close, RsiLen);
+
+BBMid = Average(Close, BBLength);
+
+// ======================================================
+// 2. Settlement day check (unchanged from v1)
+// ======================================================
+IsSettlementDay =
+    DayOfWeek(Date) = ExitDay
+    and DayOfMonth(Date) &gt;= MinDay
+    and DayOfMonth(Date) &lt;= MaxDay;
+
+// ======================================================
+// 3. Entry logic: trend + momentum + strength + position,
+//    each confirmed for 2 consecutive bars (v1.1 core change)
+// ======================================================
+Condition1 =
+    // Trend: price above rising 1280 HighMA for 2 consecutive bars (unchanged from v1)
+    Close &gt; HighMA
+    and Close[1] &gt; HighMA[1]
+    and HighMA &gt; HighMA[1]
+    and HighMA[1] &gt; HighMA[2]
+    // Momentum: MACD histogram positive for 2 consecutive bars (NEW, doubled vs v3)
+    and MacdDiff &gt; 0
+    and MacdDiff[1] &gt; 0
+    // Strength: RSI above 50 for 2 consecutive bars (NEW, doubled vs v3)
+    and RsiValue &gt; 50
+    and RsiValue[1] &gt; 50
+    // Position: price above BB midline for 2 consecutive bars (NEW)
+    and Close &gt; BBMid
+    and Close[1] &gt; BBMid[1];
+
+// Enter a long position on the next bar at market
+// when the strategy is not currently long.
+If MarketPosition &lt;&gt; 1
+and Condition1 then
+    Buy (&quot;LongEntry_v1_1&quot;) Next Bar at Market;
+
+// Exit the position at the end of the settlement day (unchanged from v1 --
+// no active stop or trailing exit was added).
+If IsSettlementDay then
+    SetExitOnClose;</code></pre></div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
   <footer>
     <span>台指期 15M 程式交易研究</span>
     <span>回測已計入單邊2,000點交易成本（滑價＋手續費），惟仍為歷史回測結果，實盤表現可能因市場流動性、成交延遲等因素而有差異</span>
