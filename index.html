@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
-<title>五款核心策略終端</title>
+<title>六款核心策略終端</title>
 
 <style>
   :root {
@@ -137,7 +137,7 @@
   table {
     border-collapse: collapse;
     width: 100%;
-    min-width: 860px;
+    min-width: 980px;
   }
 
   thead th {
@@ -336,6 +336,66 @@
     body { padding: 40px 16px 72px; }
   }
 
+  /* ---------- Collapsible source code ---------- */
+
+  .code-toggle {
+    margin-top: 20px;
+    border-top: 1px solid var(--border-soft);
+    padding-top: 16px;
+  }
+
+  .code-toggle summary {
+    cursor: pointer;
+    list-style: none;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+  }
+
+  .code-toggle summary::-webkit-details-marker { display: none; }
+
+  .code-toggle summary::before {
+    content: "▸";
+    display: inline-block;
+    font-size: 10px;
+    color: var(--text-faint);
+    transition: transform 0.15s ease;
+  }
+
+  .code-toggle[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  .code-toggle summary:hover { color: #ddb843; }
+
+  .code-toggle .code-wrap {
+    margin-top: 14px;
+    max-height: 480px;
+    overflow: auto;
+    background: #0c1014;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+
+  .code-toggle pre {
+    margin: 0;
+    padding: 18px 20px;
+  }
+
+  .code-toggle code {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: #b9c4cb;
+    white-space: pre;
+  }
+
   /* ---------- Footer ---------- */
 
   footer {
@@ -355,16 +415,16 @@
 <div class="page">
 
   <p class="eyebrow">TXF · 15M STRATEGY DESK</p>
-  <h1>五款核心策略終端</h1>
+  <h1>六款核心策略終端</h1>
   <p class="subtitle">
-    台指期 15 分K多空策略群，經 v1～v11 及六次微調實驗後篩出的五款代表性版本，
+    台指期 15 分K多空策略群，經 v1～v11 及六次微調實驗後篩出的六款代表性版本，
     各自對應一種明確的報酬／風險取捨，非「全面最強」單一解答。
   </p>
   <div class="source-note">
     <span>資料來源：策略回測績效報告（策略分析工作表）</span>
     <span>回測期間：約 9 年 4 個月</span>
     <span>商品：TXF1</span>
-    <span><span class="legend-dot"></span>紅字粗體 = 該指標五版中最優</span>
+    <span><span class="legend-dot"></span>紅字粗體 = 該指標六版中最優</span>
   </div>
 
   <section>
@@ -380,6 +440,7 @@
           <tr>
             <th class="metric-col">指標</th>
             <th>v1<span class="tag">BH_Settlement</span></th>
+            <th>v3<span class="tag">MacdRsi_BB</span></th>
             <th>v4<span class="tag">VolKD_CoolDown</span></th>
             <th>v5<span class="tag">AsyncVolKD_BB</span></th>
             <th>v9<span class="tag">Breakeven_BB</span></th>
@@ -390,6 +451,7 @@
           <tr>
             <td class="metric-label">核心定位</td>
             <td class="tag-cell">報酬效率之王</td>
+            <td class="tag-cell">勝率之王</td>
             <td class="tag-cell">均衡穩健・嚴格版</td>
             <td class="tag-cell">均衡穩健・寬鬆版</td>
             <td class="tag-cell">回撤／夏普之王</td>
@@ -398,6 +460,7 @@
           <tr>
             <td class="metric-label">淨利 (元)</td>
             <td class="best">7,121,000</td>
+            <td>5,773,600</td>
             <td>3,964,800</td>
             <td>4,418,200</td>
             <td>2,327,400</td>
@@ -406,6 +469,7 @@
           <tr>
             <td class="metric-label">獲利因子</td>
             <td class="best">3.39</td>
+            <td>1.83</td>
             <td>1.87</td>
             <td>1.87</td>
             <td>1.20</td>
@@ -414,14 +478,16 @@
           <tr>
             <td class="metric-label">勝率 (%)</td>
             <td>62.14</td>
+            <td class="best">90.35</td>
             <td>85.11</td>
-            <td class="best">85.16</td>
+            <td>85.16</td>
             <td>53.85</td>
             <td>53.09</td>
           </tr>
           <tr>
             <td class="metric-label">交易總次數<span class="hint">越少・對成本越不敏感</span></td>
             <td class="best">103</td>
+            <td>902</td>
             <td>235</td>
             <td>256</td>
             <td>611</td>
@@ -430,6 +496,7 @@
           <tr>
             <td class="metric-label">每筆平均獲利 (元)</td>
             <td class="best">69,136</td>
+            <td>6,401</td>
             <td>16,871</td>
             <td>17,259</td>
             <td>3,809</td>
@@ -438,6 +505,7 @@
           <tr>
             <td class="metric-label">最大策略虧損 (%)</td>
             <td>-113.22</td>
+            <td>-107.81</td>
             <td>-83.57</td>
             <td>-129.76</td>
             <td class="best">-69.51</td>
@@ -446,6 +514,7 @@
           <tr>
             <td class="metric-label">年化夏普比率</td>
             <td>0.776</td>
+            <td>0.931</td>
             <td>1.040</td>
             <td>1.140</td>
             <td class="best">1.262</td>
@@ -454,6 +523,7 @@
           <tr>
             <td class="metric-label">索丁諾比率</td>
             <td>0.481</td>
+            <td>0.413</td>
             <td>1.101</td>
             <td>1.009</td>
             <td>0.878</td>
@@ -462,6 +532,7 @@
           <tr>
             <td class="metric-label">市場曝險 (%)</td>
             <td>81.42</td>
+            <td>67.08</td>
             <td>29.27</td>
             <td>32.92</td>
             <td>24.20</td>
@@ -470,7 +541,8 @@
           <tr>
             <td class="metric-label">帳戶所需金額 (元)<span class="hint">越低・資金效率越高</span></td>
             <td>766,800</td>
-            <td class="best">735,800</td>
+            <td class="best">684,800</td>
+            <td>735,800</td>
             <td>914,000</td>
             <td>989,000</td>
             <td>1,285,400</td>
@@ -517,6 +589,164 @@
             <p>最大策略虧損 -113.2% 只是中段班，因為完全沒有主動風控，遇到單次大幅拉回會直接承受。適合能接受較大帳面波動、以長期總報酬效率為優先的使用者。</p>
           </div>
         </div>
+        <details class="code-toggle">
+          <summary>查看完整程式碼 · PowerLanguage（TXF_15M_1280HighMA_2Bar_BH_Settlement_v1.txt）</summary>
+          <div class="code-wrap"><pre><code>Inputs:
+    TrendLen(1280),
+    ExitDay(3),
+    MinDay(15),
+    MaxDay(21);
+
+Variables:
+    HighMA(0),
+    Condition1(false),
+    IsSettlementDay(false);
+
+// Calculate the average of the highest prices
+// over the previous 1280 bars
+HighMA = Average(High, TrendLen);
+
+// Identify the third Wednesday of each month
+// DayOfWeek = 3 represents Wednesday
+IsSettlementDay =
+    DayOfWeek(Date) = ExitDay
+    and DayOfMonth(Date) &gt;= MinDay
+    and DayOfMonth(Date) &lt;= MaxDay;
+
+// Entry condition:
+// 1. The closing price has been above the 1280-bar
+//    high-price moving average for two consecutive bars.
+// 2. The moving average itself has been rising
+//    for two consecutive bars.
+Condition1 =
+    Close &gt; HighMA
+    and Close[1] &gt; HighMA[1]
+    and HighMA &gt; HighMA[1]
+    and HighMA[1] &gt; HighMA[2];
+
+// Enter a long position on the next bar at market
+// when the strategy is not currently long.
+If MarketPosition &lt;&gt; 1
+and Condition1 then
+    Buy (&quot;LongEntry&quot;) Next Bar at Market;
+
+// Exit the position at the end of the settlement day.
+If IsSettlementDay then
+    SetExitOnClose;</code></pre></div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-id">v3 · TXF_15M_1280HighMA_MacdRsi_BBTrail_Settlement</div>
+            <p class="card-name">MACD+RSI濾網＋BB中軌出場</p>
+          </div>
+          <span class="card-tag">勝率之王</span>
+        </div>
+        <div class="card-stats">
+          <div class="stat"><div class="k">勝率</div><div class="v best">90.35%</div></div>
+          <div class="stat"><div class="k">帳戶所需金額</div><div class="v best">684,800</div></div>
+          <div class="stat"><div class="k">獲利因子</div><div class="v">1.83</div></div>
+          <div class="stat"><div class="k">交易次數</div><div class="v">902</div></div>
+        </div>
+        <div class="card-body">
+          <div class="block logic">
+            <h3>核心邏輯</h3>
+            <p>在 v1 的 1280 HighMA 趨勢濾網上，疊加 MACD 柱狀圖 &gt; 0（動能確認）與 RSI &gt; 50（多方力道確認）雙重過濾；出場改用 BB(20,2) 中軌動態跌破（僅獲利時觸發）＋結算日強制出場。相較 v4/v5 用 BB 下軌，v3 用中軌出場明顯更敏感、更早停利了結。</p>
+          </div>
+          <div class="block advantage">
+            <h3>主要優勢</h3>
+            <p>勝率 90.35% 是全系列（含所有微調版本）最高，帳戶所需金額 684,800 元也是六版中最低，代表資金效率最佳、心理上最容易「常常是對的」。</p>
+          </div>
+          <div class="block risk">
+            <h3>風險與適用情境</h3>
+            <p>交易總次數 902 筆偏高，對實盤滑價／手續費敏感度較高；曾以 v3.1 加入 10 根K棒冷卻期測試，交易次數完全沒變（902 筆不變），證實瓶頸不是缺乏冷卻期，而是 BB 中軌出場本身過於敏感、獲利常常提早了結。適合重視「常勝」心理感受、能接受較高交易頻率成本的使用者。</p>
+          </div>
+        </div>
+        <details class="code-toggle">
+          <summary>查看完整程式碼 · PowerLanguage（TXF_15M_1280HighMA_MacdRsi_BBTrail_Settlement_v3.txt）</summary>
+          <div class="code-wrap"><pre><code>Inputs:
+    TrendLen(1280),
+    ExitDay(3),
+    MinDay(15),
+    MaxDay(21),
+    // Momentum and volatility filter parameters
+    MacdFastLen(12),
+    MacdSlowLen(26),
+    MacdMacdLen(9),
+    RsiLen(14),
+    BBLength(20);
+
+Variables:
+    HighMA(0),
+    MacdValue(0),
+    MacdAvg(0),
+    MacdDiff(0),
+    RsiValue(0),
+    BBMid(0),
+    Condition1(false),
+    IsSettlementDay(false);
+
+// ======================================================
+// 1. Core trend and multi-dimensional technical indicator calculation
+// ======================================================
+HighMA = Average(High, TrendLen);
+
+// Calculate MACD (assess breakout momentum)
+MacdValue = MACD(Close, MacdFastLen, MacdSlowLen);
+MacdAvg = XAverage(MacdValue, MacdMacdLen);
+MacdDiff = MacdValue - MacdAvg; // MACD Histogram
+
+// Calculate RSI (assess bullish strength)
+RsiValue = RSI(Close, RsiLen);
+
+// Calculate Bollinger Bands midline (dynamic trailing stop)
+BBMid = Average(Close, BBLength);
+
+
+// ======================================================
+// 2. Settlement day condition check
+// ======================================================
+IsSettlementDay =
+    DayOfWeek(Date) = ExitDay
+    and DayOfMonth(Date) &gt;= MinDay
+    and DayOfMonth(Date) &lt;= MaxDay;
+
+
+// ======================================================
+// 3. Entry logic (Trend + Momentum + Strength confirmation)
+// ======================================================
+Condition1 =
+    // Original logic: Price above 1280 HighMA and MA rising for 2 consecutive bars
+    Close &gt; HighMA
+    and Close[1] &gt; HighMA[1]
+    and HighMA &gt; HighMA[1]
+    and HighMA[1] &gt; HighMA[2]
+    // New filter: MACD histogram &gt; 0, ensuring upward momentum
+    and MacdDiff &gt; 0
+    // New filter: RSI &gt; 50, ensuring bullish control zone
+    and RsiValue &gt; 50;
+
+// Execute long entry
+If MarketPosition &lt;&gt; 1 and Condition1 then
+    Buy (&quot;LongEntry_Opt&quot;) Next Bar at Market;
+
+
+// ======================================================
+// 4. Exit logic (Dynamic trailing stop + Mandatory settlement exit)
+// ======================================================
+If MarketPosition = 1 then 
+begin
+    // Dynamic stop: Exit if close falls below 20-bar BB midline and position is profitable
+    If Close &lt; BBMid and OpenPositionProfit &gt; 0 then
+        Sell (&quot;BB_TrailExit&quot;) Next Bar at Market;
+
+    // Settlement day final defense: Hold until the close of the 3rd Wednesday
+    If IsSettlementDay then
+        SetExitOnClose;
+end;</code></pre></div>
+        </details>
       </div>
 
       <div class="card">
@@ -530,7 +760,7 @@
         <div class="card-stats">
           <div class="stat"><div class="k">淨利</div><div class="v">396.5萬</div></div>
           <div class="stat"><div class="k">勝率</div><div class="v">85.11%</div></div>
-          <div class="stat"><div class="k">帳戶所需金額</div><div class="v best">735,800</div></div>
+          <div class="stat"><div class="k">帳戶所需金額</div><div class="v">735,800</div></div>
           <div class="stat"><div class="k">最大策略虧損</div><div class="v">-83.6%</div></div>
         </div>
         <div class="card-body">
@@ -540,13 +770,124 @@
           </div>
           <div class="block advantage">
             <h3>主要優勢</h3>
-            <p>勝率 85.11%、獲利因子 1.87，是報酬與交易頻率之間平衡最好的版本之一；帳戶所需金額 735,800 元五版最低，資金運用效率最高。</p>
+            <p>勝率 85.11%、獲利因子 1.87，是報酬與交易頻率之間平衡最好的版本之一；帳戶所需金額 735,800 元六版中僅次於 v3，資金運用效率同樣居前段班。</p>
           </div>
           <div class="block risk">
             <h3>風險與適用情境</h3>
             <p>進場濾網最嚴格（要求同根爆量），訊號會比 v5 更少更保守。適合想要「看得懂、抱得住」且對實盤成本、資金規模敏感的穩健型使用者。</p>
           </div>
         </div>
+        <details class="code-toggle">
+          <summary>查看完整程式碼 · PowerLanguage（TXF_15M_VolKD_CoolDown_Settlement_v4.txt）</summary>
+          <div class="code-wrap"><pre><code>// Strategy Name: TXF_15M_VolKD_CoolDown_Settlement_v4
+
+Inputs:
+    TrendLen(1280),
+    ExitDay(3),
+    MinDay(15),
+    MaxDay(21),
+    // Live Volume filter parameters
+    VolLen(20),
+    VolMult(1.5),
+    // KD Oscillator parameters
+    KLen(9),
+    DLen(3),
+    // Bollinger Bands exit parameters
+    BBLength(20),
+    BBDev(2),
+    // Cooldown parameter to prevent over-trading
+    CooldownBars(10);
+
+Variables:
+    HighMA(0),
+    AvgVol(0),
+    LowestLow(0),
+    HighestHigh(0),
+    KValue(0),
+    DValue(0),
+    BBLower(0),
+    ExitBar(-999),
+    CanEnter(true),
+    IsSettlementDay(false),
+    Condition_Trend(false),
+    Condition_Vol(false),
+    Condition_KD(false);
+
+// ======================================================
+// 1. Core trend, live volume, and KD calculations
+// ======================================================
+HighMA = Average(High, TrendLen);
+AvgVol = Average(Volume, VolLen); 
+
+// Calculate KD (Stochastic Oscillator)
+LowestLow = Lowest(Low, KLen);
+HighestHigh = Highest(High, KLen);
+
+If HighestHigh &lt;&gt; LowestLow Then
+    KValue = (Close - LowestLow) / (HighestHigh - LowestLow) * 100
+Else
+    KValue = 0;
+
+DValue = Average(KValue, DLen);
+
+// Calculate Bollinger Bands Lower Band (Relaxed dynamic stop)
+BBLower = Average(Close, BBLength) - BBDev * StandardDev(Close, BBLength, 1);
+
+
+// ======================================================
+// 2. Cooldown period logic (Prevent consecutive whipsaws)
+// ======================================================
+// Record the bar number when a long position is closed
+If MarketPosition = 0 and MarketPosition[1] = 1 Then
+    ExitBar = CurrentBar;
+
+// Check if enough bars have passed since the last exit
+CanEnter = (CurrentBar - ExitBar) &gt; CooldownBars;
+
+
+// ======================================================
+// 3. Settlement day condition check
+// ======================================================
+IsSettlementDay =
+    DayOfWeek(Date) = ExitDay
+    and DayOfMonth(Date) &gt;= MinDay
+    and DayOfMonth(Date) &lt;= MaxDay;
+
+
+// ======================================================
+// 4. Entry logic (Trend + Volume Burst + KD Confirmation)
+// ======================================================
+Condition_Trend =
+    Close &gt; HighMA
+    and Close[1] &gt; HighMA[1]
+    and HighMA &gt; HighMA[1]
+    and HighMA[1] &gt; HighMA[2];
+
+// Volume burst requirement
+Condition_Vol = Volume &gt; (AvgVol * VolMult);
+
+// KD golden cross and not in overbought territory
+Condition_KD = KValue crosses over DValue and KValue &lt; 80;
+
+// Execute long entry if all dimensions align and cooldown is cleared
+If MarketPosition = 0 and CanEnter and Condition_Trend and Condition_Vol and Condition_KD then
+    Buy (&quot;Long_v4&quot;) Next Bar at Market;
+
+
+// ======================================================
+// 5. Exit logic (Relaxed Trailing Stop + Settlement)
+// ======================================================
+If MarketPosition = 1 then
+begin
+    // Relaxed dynamic stop: Exit if close falls below the BB lower band
+    If Close &lt; BBLower and OpenPositionProfit &gt; 0 then
+        Sell (&quot;BB_TrailExit&quot;) Next Bar at Market;
+
+    // Settlement day final defense
+    If IsSettlementDay then
+        SetExitOnClose;
+end;</code></pre></div>
+        </details>
       </div>
 
       <div class="card">
@@ -559,7 +900,7 @@
         </div>
         <div class="card-stats">
           <div class="stat"><div class="k">淨利</div><div class="v">441.8萬</div></div>
-          <div class="stat"><div class="k">勝率</div><div class="v best">85.16%</div></div>
+          <div class="stat"><div class="k">勝率</div><div class="v">85.16%</div></div>
           <div class="stat"><div class="k">年化夏普</div><div class="v">1.140</div></div>
           <div class="stat"><div class="k">最大策略虧損</div><div class="v">-129.8%</div></div>
         </div>
@@ -570,13 +911,128 @@
           </div>
           <div class="block advantage">
             <h3>主要優勢</h3>
-            <p>勝率 85.16%、獲利因子 1.87，年化夏普 1.14 五版第二高；放寬濾網後訊號比 v4 略多但依然可控（256 筆），淨利也優於 v4。</p>
+            <p>勝率 85.16%、獲利因子 1.87，年化夏普 1.14 六版中第二高（僅次於 v9）；放寬濾網後訊號比 v4 略多但依然可控（256 筆），淨利也優於 v4。</p>
           </div>
           <div class="block risk">
             <h3>風險與適用情境</h3>
-            <p>最大策略虧損 -129.8% 五版中最差，代表放寬濾網雖拉高報酬，也讓部位在單次逆勢時的承受幅度變大。適合認同 v4 邏輯、但想要更高總報酬的使用者。</p>
+            <p>最大策略虧損 -129.8% 六版中最差，代表放寬濾網雖拉高報酬，也讓部位在單次逆勢時的承受幅度變大。適合認同 v4 邏輯、但想要更高總報酬的使用者。</p>
           </div>
         </div>
+        <details class="code-toggle">
+          <summary>查看完整程式碼 · PowerLanguage（TXF_15M_AsyncVolKD_BBTrail_Settlement_v5.txt）</summary>
+          <div class="code-wrap"><pre><code>// Strategy Name: TXF_15M_AsyncVolKD_BBTrail_Settlement_v5
+
+Inputs:
+    TrendLen(1280),         // Core long-term trend period
+    ExitDay(3),             // Settlement day: 3rd Wednesday
+    MinDay(15),
+    MaxDay(21),
+    // Volume filter parameters (Asynchronous lock removed)
+    VolLen(20),             // Average volume period
+    VolMult(1.5),           // Volume burst multiplier
+    VolLookback(10),        // Lookback window for volume burst
+    // KD Oscillator parameters (Relaxed overbought constraint)
+    KLen(9),
+    DLen(3),
+    // Bollinger Bands dynamic stop parameters
+    BBLength(20),
+    BBDev(2),
+    // Cooldown parameter to prevent over-trading
+    CooldownBars(10);
+
+Variables:
+    HighMA(0),
+    AvgVol(0),
+    HighestVol(0),
+    LowestLow(0),
+    HighestHigh(0),
+    KValue(0),
+    DValue(0),
+    BBLower(0),
+    ExitBar(-999),
+    CanEnter(true),
+    IsSettlementDay(false),
+    Condition_Trend(false),
+    Condition_Vol(false),
+    Condition_KD(false);
+
+// ======================================================
+// 1. Core trend, volume, and KD calculations
+// ======================================================
+HighMA = Average(High, TrendLen);
+AvgVol = Average(Volume, VolLen); 
+
+// Calculate the highest volume within the recent lookback window
+HighestVol = Highest(Volume, VolLookback);
+
+// Calculate KD (Stochastic Oscillator)
+LowestLow = Lowest(Low, KLen);
+HighestHigh = Highest(High, KLen);
+
+If HighestHigh &lt;&gt; LowestLow Then
+    KValue = (Close - LowestLow) / (HighestHigh - LowestLow) * 100
+Else
+    KValue = 0;
+
+DValue = Average(KValue, DLen);
+
+// Calculate Bollinger Bands Lower Band (Relaxed dynamic stop)
+BBLower = Average(Close, BBLength) - BBDev * StandardDev(Close, BBLength, 1);
+
+
+// ======================================================
+// 2. Cooldown period logic (Prevent consecutive whipsaws)
+// ======================================================
+If MarketPosition = 0 and MarketPosition[1] = 1 Then
+    ExitBar = CurrentBar;
+
+CanEnter = (CurrentBar - ExitBar) &gt; CooldownBars;
+
+
+// ======================================================
+// 3. Settlement day condition check
+// ======================================================
+IsSettlementDay =
+    DayOfWeek(Date) = ExitDay
+    and DayOfMonth(Date) &gt;= MinDay
+    and DayOfMonth(Date) &lt;= MaxDay;
+
+
+// ======================================================
+// 4. Entry logic (Async alignment: Trend + Recent Volume Burst + KD Bullish)
+// ======================================================
+// Condition 1: Price above 1280 HighMA and MA rising for 2 consecutive bars
+Condition_Trend =
+    Close &gt; HighMA
+    and Close[1] &gt; HighMA[1]
+    and HighMA &gt; HighMA[1]
+    and HighMA[1] &gt; HighMA[2];
+
+// Condition 2: Volume burst &gt; 1.5x average occurred within the last 10 bars
+Condition_Vol = HighestVol &gt; (AvgVol * VolMult);
+
+// Condition 3: KD in bullish alignment (allowing high-level saturation &gt; 80)
+Condition_KD = KValue &gt; DValue;
+
+// Execute long entry if all dimensions align and cooldown is cleared
+If MarketPosition = 0 and CanEnter and Condition_Trend and Condition_Vol and Condition_KD then
+    Buy (&quot;Long_v5&quot;) Next Bar at Market;
+
+
+// ======================================================
+// 5. Exit logic (Relaxed Trailing Stop + Settlement)
+// ======================================================
+If MarketPosition = 1 then
+begin
+    // Dynamic stop: Exit if close falls below the BB lower band and position is profitable
+    If Close &lt; BBLower and OpenPositionProfit &gt; 0 then
+        Sell (&quot;BB_TrailExit&quot;) Next Bar at Market;
+
+    // Settlement day final defense
+    If IsSettlementDay then
+        SetExitOnClose;
+end;</code></pre></div>
+        </details>
       </div>
 
       <div class="card">
@@ -607,6 +1063,88 @@
             <p>獲利因子與勝率只是中等，總報酬並非最高。適合把「資金曲線平穩、心理上抱得住」放在第一順位、重視風險控管勝過總報酬的使用者。</p>
           </div>
         </div>
+        <details class="code-toggle">
+          <summary>查看完整程式碼 · PowerLanguage（TXF_15M_AsyncVolKD_Breakeven_BBTrail_v9.txt）</summary>
+          <div class="code-wrap"><pre><code>// Strategy Name: TXF_15M_AsyncVolKD_Breakeven_BBTrail_v9
+// Tab Name: 15M_BE_BBTrail_v9
+
+Inputs:
+    TrendLen(1280),         // Core trend determination
+    ExitDay(3), MinDay(15), MaxDay(21), 
+    // Async Volume &amp; KD filters
+    VolLen(20), VolMult(1.5), VolLookback(10),
+    KLen(9), DLen(3),
+    CooldownBars(10),
+    // v9 New: Strict Risk Management &amp; Dynamic Trailing
+    InitialStopPts(150),    // Initial Stop Loss in points
+    BreakEvenTrigger(100),  // Breakeven trigger (activate after 100 pts profit)
+    // Bollinger Bands Defense (Relaxed Trailing)
+    BBLength(20), 
+    BBDev(2);
+
+Variables:
+    HighMA(0), AvgVol(0), HighestVol(0),
+    LowestLow(0), HighestHigh(0), KValue(0), DValue(0),
+    BBLower(0), ExitBar(-999), CanEnter(true), IsSettlementDay(false),
+    Condition_Trend(false), Condition_Vol(false), Condition_KD(false);
+
+// ======================================================
+// 1. Indicator Calculations
+// ======================================================
+HighMA = Average(High, TrendLen);
+AvgVol = Average(Volume, VolLen); 
+HighestVol = Highest(Volume, VolLookback);
+
+LowestLow = Lowest(Low, KLen);
+HighestHigh = Highest(High, KLen);
+If HighestHigh &lt;&gt; LowestLow Then KValue = (Close - LowestLow) / (HighestHigh - LowestLow) * 100 Else KValue = 0;
+DValue = Average(KValue, DLen);
+
+BBLower = Average(Close, BBLength) - BBDev * StandardDev(Close, BBLength, 1);
+
+// ======================================================
+// 2. Cooldown and Settlement
+// ======================================================
+If MarketPosition = 0 and MarketPosition[1] = 1 Then ExitBar = CurrentBar;
+CanEnter = (CurrentBar - ExitBar) &gt; CooldownBars;
+
+IsSettlementDay = DayOfWeek(Date) = ExitDay and DayOfMonth(Date) &gt;= MinDay and DayOfMonth(Date) &lt;= MaxDay;
+
+// ======================================================
+// 3. Entry Logic (Async Signals)
+// ======================================================
+Condition_Trend = Close &gt; HighMA and Close[1] &gt; HighMA[1] and HighMA &gt; HighMA[1] and HighMA[1] &gt; HighMA[2];
+Condition_Vol = HighestVol &gt; (AvgVol * VolMult);
+Condition_KD = KValue &gt; DValue;
+
+If MarketPosition = 0 and CanEnter and Condition_Trend and Condition_Vol and Condition_KD then
+    Buy (&quot;Long_v9&quot;) Next Bar at Market;
+
+// ======================================================
+// 4. Exit Logic (ISL -&gt; Breakeven -&gt; BB Trail -&gt; Settlement)
+// ======================================================
+If MarketPosition = 1 then
+begin
+    // Defense A: Initial Fixed Stop Loss
+    If Close &lt; EntryPrice - InitialStopPts Then
+        Sell (&quot;ISL_Exit&quot;) Next Bar at Market;
+
+    // Defense B: Breakeven Mechanism (Shift stop to entry if profit target reached)
+    If MaxContractProfit &gt;= (BreakEvenTrigger * BigPointValue) Then
+    begin
+        If Close &lt; EntryPrice Then
+            Sell (&quot;BreakEven_Exit&quot;) Next Bar at Market;
+    end;
+
+    // Defense C: BB Lower Band Trailing (Exit if below BB and profitable)
+    If Close &lt; BBLower and OpenPositionProfit &gt; 0 Then
+        Sell (&quot;BB_TrailExit&quot;) Next Bar at Market;
+
+    // Defense D: Mandatory Settlement Exit
+    If IsSettlementDay then
+        SetExitOnClose;
+end;</code></pre></div>
+        </details>
       </div>
 
       <div class="card">
@@ -637,6 +1175,100 @@
             <p>最大策略虧損、年化夏普只是中等；曾嘗試（v10.1）收緊 ATR 停損倍數想同時改善這兩項，結果嚴重犧牲索丁諾比率與淨利，證實不可行。適合特別看重「單筆虧損波動要穩定、不出現極端損失」的使用者。</p>
           </div>
         </div>
+        <details class="code-toggle">
+          <summary>查看完整程式碼 · PowerLanguage（TXF_15M_AsyncVolKD_AtrBE_BBTrail_v10.txt）</summary>
+          <div class="code-wrap"><pre><code>// Strategy Name: TXF_15M_AsyncVolKD_AtrBE_BBTrail_v10
+// Tab Name: 15M_AtrBE_v10
+
+Inputs:
+    TrendLen(1280),         // Core trend determination
+    ExitDay(3), MinDay(15), MaxDay(21), 
+    // Async Volume &amp; KD filters 
+    VolLen(20), VolMult(1.5), VolLookback(10),
+    KLen(9), DLen(3),
+    CooldownBars(10),
+    // v10 Core: ATR Adaptive Defense Parameters
+    AtrLen(14),             // ATR calculation period
+    IslAtrMult(4),          // Initial Stop Loss multiplier (e.g., 4x ATR)
+    BeTriggerAtrMult(3),    // Smart Breakeven trigger threshold (3x ATR profit)
+    BeLockAtrMult(0.5),     // Breakeven lock level (Entry + 0.5x ATR to cover costs)
+    // Bollinger Bands Defense
+    BBLength(20), BBDev(2);
+
+Variables:
+    HighMA(0), AvgVol(0), HighestVol(0),
+    LowestLow(0), HighestHigh(0), KValue(0), DValue(0),
+    BBLower(0), MyATR(0), EntryATR(0), 
+    ExitBar(-999), CanEnter(true), IsSettlementDay(false),
+    BE_Triggered(false),    // Tracks if Breakeven has been activated
+    Condition_Trend(false), Condition_Vol(false), Condition_KD(false);
+
+// ======================================================
+// 1. Indicator Calculations and State Updates
+// ======================================================
+HighMA = Average(High, TrendLen);
+AvgVol = Average(Volume, VolLen); 
+HighestVol = Highest(Volume, VolLookback);
+
+LowestLow = Lowest(Low, KLen);
+HighestHigh = Highest(High, KLen);
+If HighestHigh &lt;&gt; LowestLow Then KValue = (Close - LowestLow) / (HighestHigh - LowestLow) * 100 Else KValue = 0;
+DValue = Average(KValue, DLen);
+
+BBLower = Average(Close, BBLength) - BBDev * StandardDev(Close, BBLength, 1);
+MyATR = AvgTrueRange(AtrLen);
+
+// ======================================================
+// 2. Cooldown, Settlement, and State Reset
+// ======================================================
+If MarketPosition = 0 Then 
+begin
+    BE_Triggered = false; // Reset breakeven state when flat
+    If MarketPosition[1] = 1 Then ExitBar = CurrentBar;
+end;
+
+CanEnter = (CurrentBar - ExitBar) &gt; CooldownBars;
+IsSettlementDay = DayOfWeek(Date) = ExitDay and DayOfMonth(Date) &gt;= MinDay and DayOfMonth(Date) &lt;= MaxDay;
+
+// ======================================================
+// 3. Entry Logic (Multi-dimensional Alignment)
+// ======================================================
+Condition_Trend = Close &gt; HighMA and Close[1] &gt; HighMA[1] and HighMA &gt; HighMA[1] and HighMA[1] &gt; HighMA[2];
+Condition_Vol = HighestVol &gt; (AvgVol * VolMult);
+Condition_KD = KValue &gt; DValue;
+
+If MarketPosition = 0 and CanEnter and Condition_Trend and Condition_Vol and Condition_KD then
+begin
+    Buy (&quot;Long_v10&quot;) Next Bar at Market;
+    EntryATR = MyATR; // Capture the True Range at the moment of entry
+end;
+
+// ======================================================
+// 4. Exit Logic (Adaptive ISL -&gt; Smart BE -&gt; BB Trail -&gt; Settlement)
+// ======================================================
+If MarketPosition = 1 then
+begin
+    // Check if the Smart Breakeven threshold has been reached
+    If High &gt;= EntryPrice + (EntryATR * BeTriggerAtrMult) Then
+        BE_Triggered = true;
+
+    // Defense A: ATR Dynamic Initial Stop Loss
+    If Close &lt; EntryPrice - (EntryATR * IslAtrMult) Then
+        Sell (&quot;ATR_ISL&quot;) Next Bar at Market;
+
+    // Defense B: Smart Breakeven Mechanism (Lock in minor profit to cover slippage)
+    If BE_Triggered and Close &lt; EntryPrice + (EntryATR * BeLockAtrMult) Then
+        Sell (&quot;SmartBE_Exit&quot;) Next Bar at Market;
+
+    // Defense C: BB Lower Band Trailing (Exit if below BB and profitable)
+    If Close &lt; BBLower and OpenPositionProfit &gt; 0 Then
+        Sell (&quot;BB_TrailExit&quot;) Next Bar at Market;
+
+    // Defense D: Mandatory Settlement Exit
+    If IsSettlementDay then
+        SetExitOnClose;
+end;</code></pre></div>
+        </details>
       </div>
 
     </div>
