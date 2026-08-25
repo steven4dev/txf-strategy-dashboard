@@ -226,6 +226,15 @@
     margin-top: 2px;
   }
 
+  tbody td .orig {
+    display: block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    font-weight: 400;
+    color: var(--text-faint);
+    margin-top: 2px;
+  }
+
   tbody tr:last-child td { border-bottom: none; }
   tbody tr:hover td { background: var(--surface-2); }
 
@@ -533,7 +542,7 @@
       <span class="section-num">01</span>
       <h2>指標總覽</h2>
     </div>
-    <p class="section-desc">十項核心指標並排比較（已計入單邊2,000點成本），紅字粗體＝最優、黃字粗體＝次優、綠字＝計入成本後為虧損。v1.1 是 v1 的延伸實驗版本，緊鄰 v1 右側，與其餘六版一同參與最優／次優排名。</p>
+    <p class="section-desc">十項核心指標並排比較（已計入單邊2,000點成本），紅字粗體＝最優、黃字粗體＝次優、綠字＝計入成本後為虧損。v1.1 是 v1 的延伸實驗版本，緊鄰 v1 右側，與其餘六版一同參與最優／次優排名。「最大策略虧損」欄位另附上原始零成本回測數值供對照（v1.1 因設計時已直接採用含成本假設，無對應零成本資料）。</p>
 
     <div class="table-wrap">
       <table>
@@ -611,14 +620,14 @@
             <td class="loss">-1,542</td>
           </tr>
           <tr>
-            <td class="metric-label">最大策略虧損 (%)</td>
-            <td>-140.00</td>
-            <td>-143.23</td>
-            <td>-305.34</td>
-            <td class="best">-123.16</td>
-            <td class="second">-132.00</td>
-            <td>-164.64</td>
-            <td>-1,256.95</td>
+            <td class="metric-label">最大策略虧損 (%)<span class="hint">上：含2,000點成本／下：原始零成本</span></td>
+            <td>-140.00<span class="orig">零成本 -113.20</span></td>
+            <td>-143.23<span class="orig">無零成本資料</span></td>
+            <td>-305.34<span class="orig">零成本 -107.80</span></td>
+            <td class="best">-123.16<span class="orig">零成本 -83.60</span></td>
+            <td class="second">-132.00<span class="orig">零成本 -129.80</span></td>
+            <td>-164.64<span class="orig">零成本 -69.50</span></td>
+            <td>-1,256.95<span class="orig">零成本 -105.40</span></td>
           </tr>
           <tr>
             <td class="metric-label">年化夏普比率</td>
