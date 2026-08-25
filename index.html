@@ -171,7 +171,7 @@
   table {
     border-collapse: collapse;
     width: 100%;
-    min-width: 980px;
+    min-width: 1120px;
   }
 
   thead th {
@@ -190,6 +190,20 @@
   }
 
   thead th.metric-col { color: var(--text-dim); }
+
+  th.ext-col, td.ext-col {
+    border-left: 1px dashed var(--border);
+  }
+
+  thead th.ext-col { color: var(--text-faint); }
+  thead th.ext-col .tag { color: var(--text-faint); }
+
+  tbody td.ext-col {
+    color: var(--text-dim);
+    font-style: italic;
+  }
+
+  tbody td.ext-col.tag-cell { font-style: normal; color: var(--text-faint); }
 
   thead .tag {
     display: block;
@@ -533,7 +547,7 @@
       <span class="section-num">01</span>
       <h2>指標總覽</h2>
     </div>
-    <p class="section-desc">十項核心指標並排比較（已計入單邊2,000點成本），紅字粗體＝最優、黃字粗體＝次優、綠字＝計入成本後為虧損。</p>
+    <p class="section-desc">十項核心指標並排比較（已計入單邊2,000點成本），紅字粗體＝最優、黃字粗體＝次優、綠字＝計入成本後為虧損。最右側 v1.1 為延伸實驗版本（虛線分隔），數值僅供對照參考，不列入六款核心策略的最優／次優排名。</p>
 
     <div class="table-wrap">
       <table>
@@ -546,6 +560,7 @@
             <th>v5<span class="tag">AsyncVolKD_BB</span></th>
             <th>v9<span class="tag">Breakeven_BB</span></th>
             <th>v10<span class="tag">AtrBE_BB</span></th>
+            <th class="ext-col">v1.1<span class="tag">延伸實驗・非核心</span></th>
           </tr>
         </thead>
         <tbody>
@@ -557,6 +572,7 @@
             <td class="tag-cell">索丁諾之王</td>
             <td class="tag-cell">含成本後轉虧</td>
             <td class="tag-cell">含成本後全面重挫</td>
+            <td class="tag-cell ext-col">改善未解決・特性互換</td>
           </tr>
           <tr>
             <td class="metric-label">淨利 (元)</td>
@@ -566,6 +582,7 @@
             <td class="second">3,448,200</td>
             <td class="loss">-396,600</td>
             <td class="loss">-1,196,800</td>
+            <td class="ext-col">6,700,000</td>
           </tr>
           <tr>
             <td class="metric-label">獲利因子</td>
@@ -575,6 +592,7 @@
             <td>1.66</td>
             <td class="loss">-0.97</td>
             <td class="loss">-0.92</td>
+            <td class="ext-col">3.22</td>
           </tr>
           <tr>
             <td class="metric-label">勝率 (%)</td>
@@ -584,6 +602,7 @@
             <td class="second">79.51</td>
             <td>45.08</td>
             <td>40.72</td>
+            <td class="ext-col">60.58</td>
           </tr>
           <tr>
             <td class="metric-label">交易總次數<span class="hint">越少・對成本越不敏感</span></td>
@@ -593,6 +612,7 @@
             <td>244</td>
             <td>599</td>
             <td>776</td>
+            <td class="ext-col">104</td>
           </tr>
           <tr>
             <td class="metric-label">每筆平均獲利 (元)</td>
@@ -602,6 +622,7 @@
             <td>14,131</td>
             <td class="loss">-662</td>
             <td class="loss">-1,542</td>
+            <td class="ext-col">64,423</td>
           </tr>
           <tr>
             <td class="metric-label">最大策略虧損 (%)</td>
@@ -611,6 +632,7 @@
             <td class="second">-132.00</td>
             <td>-164.64</td>
             <td>-1,256.95</td>
+            <td class="ext-col">-143.23</td>
           </tr>
           <tr>
             <td class="metric-label">年化夏普比率</td>
@@ -620,6 +642,7 @@
             <td>0.646</td>
             <td class="second">0.648</td>
             <td>-1.348</td>
+            <td class="ext-col">0.399</td>
           </tr>
           <tr>
             <td class="metric-label">索丁諾比率</td>
@@ -629,6 +652,7 @@
             <td class="best">3.053</td>
             <td class="second">0.678</td>
             <td>-0.402</td>
+            <td class="ext-col">1.384</td>
           </tr>
           <tr>
             <td class="metric-label">市場曝險 (%)</td>
@@ -638,6 +662,7 @@
             <td>33.20</td>
             <td>24.36</td>
             <td>22.98</td>
+            <td class="ext-col">79.03</td>
           </tr>
           <tr>
             <td class="metric-label">帳戶所需金額 (元)<span class="hint">越低・資金效率越高</span></td>
@@ -647,6 +672,7 @@
             <td>1,049,200</td>
             <td>1,445,800</td>
             <td>1,849,800</td>
+            <td class="ext-col">623,200</td>
           </tr>
         </tbody>
       </table>
